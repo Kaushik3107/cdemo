@@ -24,6 +24,7 @@ export class MychartComponent implements OnInit {
         }
         this.RenderChart(this.labeldata, this.realdata, this.colordata);
         this.PieChart(this.labeldata, this.realdata, this.colordata);
+        this.createBubbleChart(this.data);
       }
     });
   }
@@ -85,6 +86,37 @@ export class MychartComponent implements OnInit {
         scales: {
           y: {
             beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
+  createBubbleChart(data: any[]): void {
+    const years = data.map((item: any) => item.year);
+    const amounts = data.map((item: any) => item.amount);
+    const colorcodes = data.map((item: any) => item.colorcode);
+    const myChart = new Chart('bubbleChartCanvas', {
+      type: 'bubble',
+      data: {
+        datasets: [
+          {
+            label: 'Bubble Chart',
+            data: years.map((year: any, index: number) => ({
+              x: year,
+              y: amounts[index],
+              r: 10, // radius, you can set it based on your data
+              backgroundColor: colorcodes[index],
+            })),
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: false,
+          },
+          x: {
+            beginAtZero: false,
           },
         },
       },

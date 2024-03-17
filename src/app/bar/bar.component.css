@@ -1,47 +1,27 @@
 .chart-bar-top{
     display: flex;
-    border: 1px solid black;
     justify-content: space-around;
 }
-.box1{
-    border: 1px solid black;
-    width: 100%;
+.box1, .box2, .box3, .box4 {
+    /* border: 1px solid rgb(230, 227, 227); */
+    border-radius: 10px;
+    background-color: rgb(230, 227, 227);
+    width: calc(25% - 20px); /* Each box takes up 25% of the container width minus margins */
     margin: 10px;
 }
-
-.box2{
-    border: 1px solid black;
-    width: 100%;
-    margin: 10px;
-}
-.box3{
-    border: 1px solid black;
-    width: 100%;
-    margin: 10px;
-}
-.box4{
-    border: 1px solid black;
-    width: 100%;
-    margin: 10px;
-}
-.box4 canvas{
-    width: 100%;
-    height: 100%;
+.box4 canvas {
+    width: 60%; /* Adjust the width to make the pie chart smaller */
+    height: 70%; /* Adjust the height to maintain aspect ratio */
     display: block;
+    margin: auto; /* Center the canvas horizontally */
 }
 .chart-bar-bottom{
     display: flex;
     justify-content: space-around;
 }
-.bbox1{
-    border: 1px solid black;
-    width: 100%;
-    margin: 10px;
-    height: fit-content;
-
-}
-.bbox2{
-    border: 1px solid black;
+.bbox1,.bbox2{
+    background-color: rgb(230, 227, 227);
+    border-radius: 10px;
     width: 100%;
     margin: 10px;
 }
@@ -51,3 +31,4 @@
     height: 100%;
     display: block;
 }
+

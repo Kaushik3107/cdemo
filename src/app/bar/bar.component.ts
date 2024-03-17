@@ -24,31 +24,26 @@ export class BarComponent implements OnInit {
         }
         this.createBarChart(this.labeldata, this.realdata, this.colordata);
         this.createPieChart(this.labeldata, this.realdata, this.colordata);
+        this.createBubbleChart(this.data);
       }
     });
-
-    this.createBubbleChart();
   }
 
-  createBubbleChart() {
-    // const bubbleChartCanvas = document.getElementById(
-    //   'bubbleChart'
-    // ) as HTMLCanvasElement;
-    // const bbox1 = document.querySelector('.bbox1') as HTMLElement;
-    // bubbleChartCanvas.width = bbox1.clientWidth;
-    // bubbleChartCanvas.height = bbox1.clientHeight;
-    new Chart('bubbleChartCanvas', {
+  createBubbleChart(data: any[]): void {
+    const bubbleData = data.map((item) => ({
+      x: item.year,
+      y: item.amount,
+      r: 10,
+    }));
+
+    const bubblechart = new Chart('bubbleChartCanvas', {
       type: 'bubble',
       data: {
         datasets: [
           {
             label: 'Bubble Chart',
-            data: [
-              { x: 10, y: 20, r: 10 }, // Sample bubble data
-              { x: 30, y: 40, r: 20 },
-              { x: 50, y: 60, r: 15 },
-            ],
-            backgroundColor: 'rgba(255, 99, 132, 0.6)',
+            data: bubbleData,
+            backgroundColor: data.map((item) => item.colorcode),
             borderColor: 'rgba(255, 99, 132, 1)',
           },
         ],
@@ -56,10 +51,13 @@ export class BarComponent implements OnInit {
       options: {
         scales: {
           y: {
-            beginAtZero: true,
+            beginAtZero: false,
           },
           x: {
-            beginAtZero: true,
+            beginAtZero: false,
+            ticks: {
+              precision: 0, // Set precision to 0 to display whole numbers
+            },
           },
         },
       },
@@ -73,16 +71,16 @@ export class BarComponent implements OnInit {
     const bbox2 = document.querySelector('.bbox2') as HTMLElement;
     barChartCanvas.width = bbox2.clientWidth;
     barChartCanvas.height = bbox2.clientHeight;
-    new Chart(barChartCanvas, {
+    const barchart = new Chart(barChartCanvas, {
       type: 'bar',
       data: {
         labels: labeldata,
         datasets: [
           {
             label: 'Bar Chart',
-            data: realdata, // Sample bar data
+            data: realdata,
             backgroundColor: colorcode,
-            borderColor: 'rgba(54, 162, 235, 1)',
+            borderColor: 'rgba(255, 99, 132, 1)',
             borderWidth: 1,
           },
         ],
@@ -98,7 +96,7 @@ export class BarComponent implements OnInit {
   }
 
   createPieChart(labeldata: any, realdata: any, colorcode: any) {
-    const myChart = new Chart('piechart', {
+    const pichart = new Chart('piechart', {
       type: 'pie',
       data: {
         labels: labeldata,
@@ -107,14 +105,7 @@ export class BarComponent implements OnInit {
             label: 'Pie Chart',
             data: realdata,
             backgroundColor: colorcode,
-            borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)',
-            ],
+            borderColor: 'rgba(255, 99, 132, 1)',
             borderWidth: 1,
           },
         ],
