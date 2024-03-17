@@ -1,9 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChartdataService {
-  constructor() {}
-  getChartData() {}
+  constructor(private http: HttpClient) {}
+  getChartData() {
+    return this.http.get('assets/chartdata.json');
+  }
 }

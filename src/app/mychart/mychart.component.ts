@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, registerables } from 'node_modules/chart.js';
+import { ChartdataService } from '../services/chartdata.service';
 Chart.register(...registerables);
 @Component({
   selector: 'app-mychart',
@@ -7,27 +8,35 @@ Chart.register(...registerables);
   styleUrls: ['./mychart.component.css'],
 })
 export class MychartComponent implements OnInit {
+  data: any;
+  labeldata: any[] = [];
+  realdata: any[] = [];
+  colordata: any[] = [];
+  constructor(private chartdata: ChartdataService) {}
   ngOnInit(): void {
-    this.RenderChart();
-    this.PieChart();
+    this.chartdata.getChartData().subscribe((res) => {
+      this.data = res;
+      if (this.data != null) {
+        for (let i = 0; i < this.data.length; i++) {
+          this.labeldata.push(this.data[i].year);
+          this.realdata.push(this.data[i].amount);
+          this.colordata.push(this.data[i].colorcode);
+        }
+        this.RenderChart(this.labeldata, this.realdata, this.colordata);
+        this.PieChart(this.labeldata, this.realdata, this.colordata);
+      }
+    });
   }
-  RenderChart() {
+  RenderChart(labeldata: any, realdata: any, colorcode: any) {
     const myChart = new Chart('barchart', {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: labeldata,
         datasets: [
           {
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-            ],
+            data: realdata,
+            backgroundColor: colorcode,
             borderColor: [
               'rgba(255, 99, 132, 1)',
               'rgba(54, 162, 235, 1)',
@@ -50,23 +59,16 @@ export class MychartComponent implements OnInit {
     });
   }
 
-  PieChart() {
+  PieChart(labeldata: any, realdata: any, colorcode: any) {
     const myChart = new Chart('piechart', {
       type: 'pie',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: labeldata,
         datasets: [
           {
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-            ],
+            data: realdata,
+            backgroundColor: colorcode,
             borderColor: [
               'rgba(255, 99, 132, 1)',
               'rgba(54, 162, 235, 1)',

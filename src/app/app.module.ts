@@ -6,19 +6,17 @@ import { AppComponent } from './app.component';
 import { MychartComponent } from './mychart/mychart.component';
 import { BarComponent } from './bar/bar.component';
 import { MainWindowComponent } from './main-window/main-window.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     MychartComponent,
     BarComponent,
-    MainWindowComponent
+    MainWindowComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
