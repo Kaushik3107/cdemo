@@ -1,0 +1,86 @@
+{
+  "January": {
+    "data": [
+      { "subject": "English", "marks": 90 },
+      { "subject": "Hindi", "marks": 80 },
+      { "subject": "Marathi", "marks": 70 }
+    ]
+  },
+  "February": {
+    "data": [
+      { "subject": "English", "marks": 80 },
+      { "subject": "Hindi", "marks": 90 },
+      { "subject": "Marathi", "marks": 70 }
+    ]
+  },
+  "March": {
+    "data": [
+      { "subject": "English", "marks": 95 },
+      { "subject": "Hindi", "marks": 85 },
+      { "subject": "Marathi", "marks": 75 }
+    ]
+  },
+  "April": {
+    "data": [
+      { "subject": "English", "marks": 90 },
+      { "subject": "Hindi", "marks": 80 },
+      { "subject": "Marathi", "marks": 70 }
+    ]
+  },
+  "May": {
+    "data": [
+      { "subject": "English", "marks": 60 },
+      { "subject": "Hindi", "marks": 50 },
+      { "subject": "Marathi", "marks": 60 }
+    ]
+  },
+  "June": {
+    "data": [
+      { "subject": "English", "marks": 90 },
+      { "subject": "Hindi", "marks": 80 },
+      { "subject": "Marathi", "marks": 70 }
+    ]
+  },
+  "July": {
+    "data": [
+      { "subject": "English", "marks": 90 },
+      { "subject": "Hindi", "marks": 60 },
+      { "subject": "Marathi", "marks": 70 }
+    ]
+  },
+  "August": {
+    "data": [
+      { "subject": "English", "marks": 50 },
+      { "subject": "Hindi", "marks": 60 },
+      { "subject": "Marathi", "marks": 70 }
+    ]
+  },
+  "September": {
+    "data": [
+      { "subject": "English", "marks": 90 },
+      { "subject": "Hindi", "marks": 80 },
+      { "subject": "Marathi", "marks": 70 }
+    ]
+  },
+  "October": {
+    "data": [
+      { "subject": "English", "marks": 50 },
+      { "subject": "Hindi", "marks": 90 },
+      { "subject": "Marathi", "marks": 70 }
+    ]
+  },
+  "November": {
+    "data": [
+      { "subject": "English", "marks": 90 },
+      { "subject": "Hindi", "marks": 80 },
+      { "subject": "Marathi", "marks": 70 }
+    ]
+  },
+  "December": {
+    "data": [
+      { "subject": "English", "marks": 100 },
+      { "subject": "Hindi", "marks": 80 },
+      { "subject": "Marathi", "marks": 70 }
+    ]
+  }
+}

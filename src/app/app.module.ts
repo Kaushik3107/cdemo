@@ -7,7 +7,9 @@ import { MychartComponent } from './mychart/mychart.component';
 import { BarComponent } from './bar/bar.component';
 import { MainWindowComponent } from './main-window/main-window.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
     BarComponent,
     MainWindowComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

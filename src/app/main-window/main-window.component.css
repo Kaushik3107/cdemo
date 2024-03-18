@@ -1,0 +1,9 @@
+.month-picker {
+    margin-bottom: 20px;
+  }
+  
+  .month-picker select {
+    padding: 5px;
+    font-size: 16px;
+  }
+  

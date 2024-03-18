@@ -1,25 +1,30 @@
 [
   {
+    "win": 230,
     "year": 2020,
     "amount": 5000,
     "colorcode": "green"
   },
   {
+    "win": 330,
     "year": 2021,
     "amount": 7000,
     "colorcode": "yellow"
   },
   {
+    "win": 430,
     "year": 2022,
     "amount": 9000,
     "colorcode": "red"
   },
   {
+    "win": 530,
     "year": 2023,
     "amount": 10000,
     "colorcode": "blue"
   },
   {
+    "win": 430,
     "year": 2024,
     "amount": 12000,
     "colorcode": "grey"
