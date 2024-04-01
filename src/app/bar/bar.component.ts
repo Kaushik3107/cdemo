@@ -65,13 +65,7 @@ export class BarComponent implements OnInit {
   }
 
   createBarChart(labeldata: any, realdata: any, colorcode: any) {
-    const barChartCanvas = document.getElementById(
-      'barChartCanvas'
-    ) as HTMLCanvasElement;
-    const bbox2 = document.querySelector('.bbox2') as HTMLElement;
-    barChartCanvas.width = bbox2.clientWidth;
-    barChartCanvas.height = bbox2.clientHeight;
-    const barchart = new Chart(barChartCanvas, {
+    const barchart = new Chart('barChartCanvas', {
       type: 'bar',
       data: {
         labels: labeldata,
